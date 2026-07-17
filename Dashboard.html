@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduNova Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+}
+
+header{
+background:#1565C0;
+color:white;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+}
+
+.profile{
+background:white;
+color:#1565C0;
+padding:8px 15px;
+border-radius:25px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+}
+
+.welcome{
+background:linear-gradient(135deg,#1565C0,#42A5F5);
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:15px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h2{
+font-size:35px;
+}
+
+.card a{
+text-decoration:none;
+color:#1565C0;
+font-weight:bold;
+}
+
+.bottom{
+margin-top:30px;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.progress{
+height:12px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.bar{
+height:100%;
+width:60%;
+background:#1565C0;
+}
+
+footer{
+margin-top:30px;
+background:#1565C0;
+color:white;
+text-align:center;
+padding:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🎓 EduNova</div>
+
+<div class="profile">👤 Student</div>
+
+</header>
+
+<div class="container">
+
+<div class="welcome">
+
+<h2>Welcome to EduNova</h2>
+
+<p>Learn Today, Lead Tomorrow 🚀</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>📚</h2>
+<h3>Courses</h3>
+<a href="courses.html">Open</a>
+</div>
+
+<div class="card">
+<h2>📄</h2>
+<h3>Notes</h3>
+<a href="notes.html">Open</a>
+</div>
+
+<div class="card">
+<h2>📝</h2>
+<h3>Online Test</h3>
+<a href="test.html">Start</a>
+</div>
+
+<div class="card">
+<h2>🏆</h2>
+<h3>Result</h3>
+<a href="result.html">View</a>
+</div>
+
+</div>
+
+<div class="bottom">
+
+<h3>📈 Study Progress</h3>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+
+<p style="margin-top:10px;">Completed : 60%</p>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 EduNova Learning Platform
+
+</footer>
+
+</body>
+  </html>
