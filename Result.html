@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduNova रिज़ल्ट</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+margin:0;
+}
+
+.container{
+max-width:600px;
+margin:40px auto;
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+h1{
+color:#1565C0;
+}
+
+.result-box{
+margin:20px 0;
+font-size:20px;
+line-height:2;
+}
+
+.grade{
+font-size:35px;
+font-weight:bold;
+color:green;
+margin:20px 0;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+background:#1565C0;
+color:#fff;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin:10px;
+}
+
+button:hover{
+background:#0d47a1;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 परीक्षा परिणाम</h1>
+
+<div class="result-box">
+
+<p><b>कुल प्रश्न :</b> <span id="total">50</span></p>
+
+<p><b>सही उत्तर :</b> <span id="correct"></span></p>
+
+<p><b>गलत उत्तर :</b> <span id="wrong"></span></p>
+
+<p><b>प्रतिशत :</b> <span id="percent"></span>%</p>
+
+</div>
+
+<div class="grade" id="grade"></div>
+
+<button onclick="window.print()">
+🖨️ रिज़ल्ट प्रिंट करें
+</button>
+
+<button onclick="location.href='index.html'">
+🏠 होम पेज
+</button>
+
+</div>
+
+<script>
+
+let score = localStorage.getItem("score") || 0;
+let total = 50;
+
+let percent = (score/total)*100;
+
+document.getElementById("correct").innerHTML = score;
+document.getElementById("wrong").innerHTML = total-score;
+document.getElementById("percent").innerHTML = percent.toFixed(2);
+
+let grade="";
+
+if(percent>=90)
+grade="🏆 Grade : A+";
+else if(percent>=75)
+grade="🥇 Grade : A";
+else if(percent>=60)
+grade="🥈 Grade : B";
+else if(percent>=45)
+grade="🥉 Grade : C";
+else
+grade="❌ Fail";
+
+document.getElementById("grade").innerHTML=grade;
+
+</script>
+
+</body>
+  </html>
