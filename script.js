@@ -137,3 +137,24 @@ window.addEventListener("scroll", () => {
     });
 
 });
+// Auto Image Slider
+
+let index = 0;
+
+const slide = document.querySelectorAll(".slide");
+
+function autoSlider(){
+
+    slide.forEach(s => s.classList.remove("active"));
+
+    index++;
+
+    if(index >= slide.length){
+        index = 0;
+    }
+
+    slide[index].classList.add("active");
+
+}
+
+setInterval(autoSlider,3000);
