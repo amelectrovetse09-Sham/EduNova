@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduNova Online Test</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+header{
+background:#1565C0;
+color:white;
+padding:18px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:700px;
+margin:30px auto;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.timer{
+font-size:22px;
+color:red;
+text-align:right;
+margin-bottom:20px;
+font-weight:bold;
+}
+
+.question{
+font-size:22px;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.option{
+display:block;
+background:#f1f1f1;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+cursor:pointer;
+}
+
+.option:hover{
+background:#dbeafe;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#1565C0;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+}
+
+.result{
+margin-top:20px;
+font-size:24px;
+text-align:center;
+font-weight:bold;
+color:green;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>📝 EduNova Online Test</header>
+
+<div class="container">
+
+<div class="timer" id="timer">05:00</div>
+
+<div class="question">
+Q1. SI Unit of Current is?
+</div>
+
+<label class="option"><input type="radio" name="q1" value="Volt"> Volt</label>
+
+<label class="option"><input type="radio" name="q1" value="Ampere"> Ampere</label>
+
+<label class="option"><input type="radio" name="q1" value="Ohm"> Ohm</label>
+
+<label class="option"><input type="radio" name="q1" value="Watt"> Watt</label>
+
+<button onclick="checkAnswer()">Submit Test</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+let time=300;
+
+setInterval(function(){
+
+let m=Math.floor(time/60);
+
+let s=time%60;
+
+document.getElementById("timer").innerHTML=
+m+":"+(s<10?"0":"")+s;
+
+if(time>0) time--;
+
+},1000);
+
+function checkAnswer(){
+
+let ans=document.querySelector('input[name="q1"]:checked');
+
+if(!ans){
+
+alert("Please select an answer");
+
+return;
+
+}
+
+if(ans.value=="Ampere"){
+
+document.getElementById("result").innerHTML="✅ Correct! Score : 1/1";
+
+}else{
+
+document.getElementById("result").innerHTML="❌ Wrong! Correct Answer : Ampere";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
