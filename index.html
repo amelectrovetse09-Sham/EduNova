@@ -1,177 +1,3 @@
-<!-- Latest Notice -->
-
-<section class="notice">
-
-<h2>📢 Latest Notice</h2>
-
-<marquee behavior="scroll" direction="left">
-🎉 New Batch Started | Free Mock Test Available | GATE 2027 Registration Open | Bihar Board Class 10 New Notes Uploaded
-</marquee>
-
-</section>
-
-<!-- Featured Courses -->
-
-<section class="featured">
-
-<h2>🔥 Featured Courses</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>📘 Bihar Board Class 10</h3>
-<p>Complete Notes + Tests + Videos</p>
-<button onclick="window.location.href='courses.html'">View</button>
-</div>
-
-<div class="card">
-<h3>⚡ GATE Electrical</h3>
-<p>Complete Preparation</p>
-<button onclick="window.location.href='courses.html'">View</button>
-</div>
-
-<div class="card">
-<h3>🧬 NEET</h3>
-<p>Biology, Physics & Chemistry</p>
-<button onclick="window.location.href='courses.html'">View</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- Statistics -->
-
-<section class="stats">
-
-<div class="card">
-<h2>1000+</h2>
-<p>Students</p>
-</div>
-
-<div class="card">
-<h2>100+</h2>
-<p>Courses</p>
-</div>
-
-<div class="card">
-<h2>500+</h2>
-<p>Tests</p>
-</div>
-
-<div class="card">
-<h2>24×7</h2>
-<p>Support</p>
-</div>
-
-</section>
-<!-- Latest Videos -->
-
-<section class="videos">
-
-<h2>🎥 Latest Videos</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Chemistry Chapter 1</h3>
-<p>Bihar Board Class 10</p>
-<a href="#">▶ Watch Now</a>
-</div>
-
-<div class="card">
-<h3>Network Theory</h3>
-<p>GATE Electrical</p>
-<a href="#">▶ Watch Now</a>
-</div>
-
-<div class="card">
-<h3>Biology Revision</h3>
-<p>NEET 2027</p>
-<a href="#">▶ Watch Now</a>
-</div>
-
-</div>
-
-</section>
-
-<!-- Live Classes -->
-
-<section class="live">
-
-<h2>📅 Upcoming Live Classes</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Physics Live</h3>
-<p>Today - 7:00 PM</p>
-</div>
-
-<div class="card">
-<h3>GATE Electrical</h3>
-<p>Tomorrow - 8:00 PM</p>
-</div>
-
-<div class="card">
-<h3>Math Revision</h3>
-<p>Sunday - 10:00 AM</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- Top Rankers -->
-
-<section class="rankers">
-
-<h2>🏆 Top Rankers</h2>
-
-<div class="cards">
-
-<div class="card">
-🥇
-<h3>Student 1</h3>
-<p>98%</p>
-</div>
-
-<div class="card">
-🥈
-<h3>Student 2</h3>
-<p>96%</p>
-</div>
-
-<div class="card">
-🥉
-<h3>Student 3</h3>
-<p>95%</p>
-</div>
-
-</div>
-
-</section>
-<!-- Student Reviews -->
-
-<section class="reviews">
-
-<h2>⭐ Student Reviews</h2>
-
-<div class="cards">
-
-<div class="card">
-<p>"EduNova helped me improve my preparation."</p>
-<h4>★★★★★</h4>
-</div>
-
-<div class="card">
-<p>"Best platform for Bihar Board and GATE."</p>
-<h4>★★★★★</h4>
-</div>
-
-</div>
-
-  </section>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,11 +11,11 @@
 <body>
 
 <!-- Header -->
-<header>
+<header class="header">
 
 <div class="logo">🎓 EduNova</div>
 
-<nav>
+<nav class="navbar">
 <a href="index.html">Home</a>
 <a href="courses.html">Courses</a>
 <a href="notes.html">Notes</a>
@@ -197,20 +23,51 @@
 <a href="dashboard.html">Dashboard</a>
 <a href="login.html">Login</a>
 </nav>
+
+<div class="header-icons">
+
+<div class="notification">
+🔔
+<span class="badge">3</span>
+</div>
+
+<div class="profile">
+
+<div class="profile-icon" onclick="toggleProfile()">
+👤
+</div>
+
+<div class="profile-menu" id="profileMenu">
+<a href="profile.html">👤 My Profile</a>
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="courses.html">📚 Courses</a>
+<a href="tests.html">📝 Tests</a>
+<a href="result.html">🏆 Results</a>
+<a href="login.html">🚪 Logout</a>
+</div>
+
+</div>
+
 <button class="dark-btn" onclick="toggleDarkMode()">🌙</button>
+
+</div>
+
 </header>
 
 <!-- Hero -->
 
 <section class="hero">
 
-<div>
+<div class="hero-content">
 
 <h1>Learn Today,<br>Lead Tomorrow</h1>
 
-<p>India's Modern Learning Platform for School & Competitive Exams</p>
+<p>
+India's Modern Learning Platform
+for School & Competitive Exams
+</p>
 
-<button onclick="window.location.href='courses.html'">
+<button onclick="location.href='courses.html'">
 Start Learning
 </button>
 
@@ -218,6 +75,24 @@ Start Learning
 
 </section>
 
+<!-- Image Slider -->
+
+<section class="slider">
+
+<div class="slides">
+
+<img class="slide active"
+src="https://picsum.photos/1200/450?random=1">
+
+<img class="slide"
+src="https://picsum.photos/1200/450?random=2">
+
+<img class="slide"
+src="https://picsum.photos/1200/450?random=3">
+
+</div>
+
+</section>
 <!-- Search -->
 
 <section class="search-section">
@@ -237,85 +112,56 @@ placeholder="Search Courses...">
 
 </section>
 
-<!-- Notice -->
+<!-- Latest Notice -->
 
 <section class="notice">
 
 <h2>📢 Latest Notice</h2>
 
-<marquee>
+<marquee behavior="scroll" direction="left">
 
-🎉 Admission Open |
-Free Mock Test |
-New Notes Uploaded |
-GATE 2027 Batch Started
+🎉 New Batch Started |
+📚 Free Mock Test Available |
+⚡ GATE 2027 Registration Open |
+📝 Bihar Board Class 10 New Notes Uploaded
 
 </marquee>
 
 </section>
 
-<!-- Why Choose -->
+<!-- Why Choose EduNova -->
 
 <section class="features">
 
-<h2>Why Choose EduNova?</h2>
+<h2>⭐ Why Choose EduNova?</h2>
 
 <div class="cards">
 
 <div class="card">
-
 <h3>📚 Smart Courses</h3>
-
-<p>
-Complete courses for School,
-JEE,
-NEET &
-GATE.
-</p>
-
+<p>Complete courses for School, JEE, NEET & GATE.</p>
 </div>
 
 <div class="card">
-
 <h3>🎥 HD Video Classes</h3>
-
-<p>
-
-Watch anytime with high quality learning videos.
-
-</p>
-
+<p>Learn anytime with high-quality video lectures.</p>
 </div>
 
 <div class="card">
-
 <h3>📝 Online Tests</h3>
-
-<p>
-
-Practice unlimited MCQs with instant results.
-
-</p>
-
+<p>Unlimited MCQ practice with instant results.</p>
 </div>
 
 <div class="card">
-
 <h3>🏆 Performance Tracking</h3>
-
-<p>
-
-Track your progress with reports and rankings.
-
-</p>
-
+<p>Track your progress with detailed reports.</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- Featured -->
+<!-- Featured Courses -->
 
 <section class="featured">
 
@@ -324,51 +170,27 @@ Track your progress with reports and rankings.
 <div class="cards">
 
 <div class="card">
-
-<h3>📘 Bihar Board</h3>
-
-<p>
-
-Class 10 Complete Course
-
-</p>
-
+<h3>📘 Bihar Board Class 10</h3>
+<p>Complete Notes, Videos & Tests</p>
+<button onclick="location.href='courses.html'">View Course</button>
 </div>
 
 <div class="card">
-
-<h3>⚡ GATE</h3>
-
-<p>
-
-Electrical Engineering
-
-</p>
-
+<h3>⚡ GATE Electrical</h3>
+<p>Complete Preparation with PYQs</p>
+<button onclick="location.href='courses.html'">View Course</button>
 </div>
 
 <div class="card">
-
 <h3>🧬 NEET</h3>
-
-<p>
-
-Medical Entrance
-
-</p>
-
+<p>Biology, Physics & Chemistry</p>
+<button onclick="location.href='courses.html'">View Course</button>
 </div>
 
 <div class="card">
-
 <h3>🧮 JEE</h3>
-
-<p>
-
-Engineering Entrance
-
-</p>
-
+<p>Physics, Chemistry & Mathematics</p>
+<button onclick="location.href='courses.html'">View Course</button>
 </div>
 
 </div>
@@ -380,40 +202,114 @@ Engineering Entrance
 <section class="stats">
 
 <div class="card">
-
 <h2>1000+</h2>
-
 <p>Students</p>
-
 </div>
 
 <div class="card">
-
 <h2>100+</h2>
-
 <p>Courses</p>
-
 </div>
 
 <div class="card">
-
 <h2>500+</h2>
-
-<p>Tests</p>
-
+<p>Mock Tests</p>
 </div>
 
 <div class="card">
-
 <h2>24×7</h2>
-
 <p>Support</p>
+</div>
+
+</section>
+<!-- Latest Videos -->
+
+<section class="videos">
+
+<h2>🎥 Latest Videos</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>📘 Chemistry Chapter 1</h3>
+<p>Bihar Board Class 10 Complete Lecture</p>
+<a href="#">▶ Watch Now</a>
+</div>
+
+<div class="card">
+<h3>⚡ Network Theory</h3>
+<p>GATE Electrical Complete Course</p>
+<a href="#">▶ Watch Now</a>
+</div>
+
+<div class="card">
+<h3>🧬 Biology Revision</h3>
+<p>NEET 2027 Crash Course</p>
+<a href="#">▶ Watch Now</a>
+</div>
 
 </div>
 
 </section>
 
-<!-- Reviews -->
+<!-- Upcoming Live Classes -->
+
+<section class="live">
+
+<h2>📅 Upcoming Live Classes</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>📘 Physics Live</h3>
+<p>Today • 7:00 PM</p>
+</div>
+
+<div class="card">
+<h3>⚡ GATE Electrical</h3>
+<p>Tomorrow • 8:00 PM</p>
+</div>
+
+<div class="card">
+<h3>🧮 Mathematics Revision</h3>
+<p>Sunday • 10:00 AM</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Top Rankers -->
+
+<section class="rankers">
+
+<h2>🏆 Top Rankers</h2>
+
+<div class="cards">
+
+<div class="card">
+<h1>🥇</h1>
+<h3>Student 1</h3>
+<p>98%</p>
+</div>
+
+<div class="card">
+<h1>🥈</h1>
+<h3>Student 2</h3>
+<p>96%</p>
+</div>
+
+<div class="card">
+<h1>🥉</h1>
+<h3>Student 3</h3>
+<p>95%</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Student Reviews -->
 
 <section class="reviews">
 
@@ -422,122 +318,47 @@ Engineering Entrance
 <div class="cards">
 
 <div class="card">
-
-<p>
-
-"Best platform for Bihar Board."
-
-</p>
-
+<p>"EduNova helped me improve my preparation. The notes and tests are amazing!"</p>
 <h4>★★★★★</h4>
-
 </div>
 
 <div class="card">
-
-<p>
-
-"Excellent Notes and Online Tests."
-
-</p>
-
+<p>"Best platform for Bihar Board, JEE, NEET and GATE preparation."</p>
 <h4>★★★★★</h4>
+</div>
 
+<div class="card">
+<p>"Easy to use, modern interface and excellent teachers."</p>
+<h4>★★★★★</h4>
 </div>
 
 </div>
 
 </section>
-
-<!-- Contact -->
+<!-- Contact Us -->
 
 <section class="contact">
 
 <h2>📞 Contact Us</h2>
 
-<p>📧 support@edunova.in</p>
+<div class="cards">
 
-<p>📱 +91 9876543210</p>
-
-<p>📍 India</p>
-
-</section>
-
-<!-- Footer -->
-
-<footer>
-
-<p>
-
-© 2026 EduNova |
-Learn Today,
-Lead Tomorrow
-
-</p>
-
-</footer>
-
-<button id="topBtn" onclick="topFunction()">⬆</button>
-
-<script src="script.js"></script>
-
-</body>
-</html>
-<!-- Image Slider -->
-
-<section class="slider">
-
-<div class="slides">
-
-<img class="slide active"
-src="https://picsum.photos/1200/450?random=1">
-
-<img class="slide"
-src="https://picsum.photos/1200/450?random=2">
-
-<img class="slide"
-src="https://picsum.photos/1200/450?random=3">
-
+<div class="card">
+<h3>📧 Email</h3>
+<p>amelectrovetse09@gmail.com</p>
 </div>
 
-</section>
-<div class="header-icons">
-
-<div class="notification">
-
-🔔
-
-<span class="badge">3</span>
-
+<div class="card">
+<h3>📱 Phone</h3>
+<p>+91 8699701571</p>
 </div>
 
-<div class="profile-icon">
-
-👤
-
+<div class="card">
+<h3>📍 Address</h3>
+<p>Baro Naya Tola, 851118, Bihar, India</p>
 </div>
 
 </div>
-<div class="profile">
 
-<div class="profile-icon" onclick="toggleProfile()">
-👤
-</div>
-
-<div class="profile-menu" id="profileMenu">
-
-<a href="profile.html">👤 My Profile</a>
-
-<a href="dashboard.html">📊 Dashboard</a>
-
-<a href="tests.html">📝 My Tests</a>
-
-<a href="result.html">🏆 Results</a>
-
-<a href="settings.html">⚙ Settings</a>
-
-<a href="login.html">🚪 Logout</a>
-
-</div>
-
-</div>
+  </section>
+  
