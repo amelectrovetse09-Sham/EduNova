@@ -419,3 +419,51 @@ display:block;
     text-align:center;
     font-size:18px;
 }
+/* ===== Dark Mode ===== */
+
+.dark-btn{
+    background:#ffffff;
+    color:#1565C0;
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+}
+
+.dark-btn:hover{
+    transform:rotate(180deg);
+}
+
+body.dark{
+    background:#121212;
+    color:#ffffff;
+}
+
+body.dark header,
+body.dark footer{
+    background:#1e1e1e;
+}
+
+body.dark .card{
+    background:#242424;
+    color:#ffffff;
+}
+
+body.dark .card p,
+body.dark .card h3,
+body.dark section h2{
+    color:#ffffff;
+}
+
+body.dark .notice{
+    background:#2d2d2d;
+}
+
+body.dark input{
+    background:#333;
+    color:#fff;
+    border:1px solid #555;
+}
