@@ -352,3 +352,38 @@ align-items:center;
 cursor:pointer;
 font-size:20px;
 }
+/* Profile Dropdown */
+
+.profile{
+position:relative;
+}
+
+.profile-menu{
+position:absolute;
+right:0;
+top:55px;
+background:white;
+width:220px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+display:none;
+overflow:hidden;
+z-index:999;
+}
+
+.profile-menu a{
+display:block;
+padding:14px;
+text-decoration:none;
+color:#333;
+transition:.3s;
+}
+
+.profile-menu a:hover{
+background:#1565C0;
+color:white;
+}
+
+.profile-menu.show{
+display:block;
+}
