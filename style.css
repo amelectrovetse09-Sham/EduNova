@@ -282,3 +282,31 @@ font-size:18px;
 }
 
   }
+/* Image Slider */
+
+.slider{
+    width:90%;
+    margin:40px auto;
+    overflow:hidden;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.slides{
+    position:relative;
+}
+
+.slide{
+    width:100%;
+    display:none;
+}
+
+.slide.active{
+    display:block;
+    animation:fade 1s;
+}
+
+@keyframes fade{
+    from{opacity:.3;}
+    to{opacity:1;}
+}
