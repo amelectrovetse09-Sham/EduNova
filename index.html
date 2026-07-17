@@ -5,128 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EduNova | Learn Today, Lead Tomorrow</title>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f5f7fb;
-color:#222;
-}
-
-header{
-background:#0d47a1;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-}
-
-.logo{
-font-size:30px;
-font-weight:bold;
-color:white;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-size:17px;
-}
-
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#0d47a1,#42a5f5);
-color:white;
-padding:20px;
-}
-
-.hero h1{
-font-size:55px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:22px;
-margin-bottom:30px;
-}
-
-button{
-padding:15px 35px;
-border:none;
-border-radius:30px;
-background:white;
-color:#0d47a1;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-background:#ffd54f;
-}
-
-.features{
-padding:70px 8%;
-}
-
-.features h2{
-text-align:center;
-margin-bottom:40px;
-font-size:35px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-footer{
-background:#0d47a1;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
+
 <div class="logo">🎓 EduNova</div>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Courses</a>
-<a href="#">Notes</a>
-<a href="#">Tests</a>
-<a href="#">Login</a>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="notes.html">Notes</a>
+<a href="tests.html">Tests</a>
+<a href="login.html">Login</a>
 </nav>
+
 </header>
 
 <section class="hero">
@@ -137,7 +32,9 @@ margin-top:40px;
 
 <p>India's Modern Learning Platform for School & Competitive Exams</p>
 
-<button>Start Learning</button>
+<button onclick="window.location.href='courses.html'">
+Start Learning
+</button>
 
 </div>
 
@@ -178,6 +75,8 @@ margin-top:40px;
 © 2026 EduNova | Learn Today, Lead Tomorrow
 
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
