@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduNova ऑनलाइन टेस्ट</title>
+
+<link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+
+<header>
+<h1>📝 EduNova ऑनलाइन टेस्ट</h1>
+</header>
+
+<div class="container">
+
+<div class="top">
+
+<div id="questionNo">
+प्रश्न 1 / 50
+</div>
+
+<div id="timer">
+30:00
+</div>
+
+</div>
+
+<div id="question" class="question">
+यहाँ प्रश्न दिखाई देगा
+</div>
+
+<div id="options" class="options">
+
+</div>
+
+<div class="buttons">
+
+<button onclick="prevQuestion()">⬅ पिछला</button>
+
+<button onclick="nextQuestion()">अगला ➡</button>
+
+</div>
+
+<button class="submit" onclick="submitTest()">
+परीक्षा समाप्त करें
+</button>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="test.js"></script>
+
+</body>
+</html>
