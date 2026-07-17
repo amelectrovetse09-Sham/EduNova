@@ -158,3 +158,24 @@ function autoSlider(){
 }
 
 setInterval(autoSlider,3000);
+// Profile Menu
+
+function toggleProfile(){
+
+document.getElementById("profileMenu").classList.toggle("show");
+
+}
+
+// बाहर क्लिक करने पर मेनू बंद
+
+window.addEventListener("click",function(e){
+
+const profile=document.querySelector(".profile");
+
+if(profile && !profile.contains(e.target)){
+
+document.getElementById("profileMenu").classList.remove("show");
+
+}
+
+});
