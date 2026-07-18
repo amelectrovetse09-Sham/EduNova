@@ -62,6 +62,7 @@ border:none;
 border-radius:10px;
 font-size:18px;
 cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
@@ -89,15 +90,15 @@ font-weight:bold;
 
 <p>Create Your Student Account</p>
 
-<input type="text" placeholder="Full Name">
+<input type="text" id="fullName" placeholder="Full Name" required>
 
-<input type="email" placeholder="Email Address">
+<input type="email" id="signupEmail" placeholder="Email Address" required>
 
-<input type="tel" placeholder="Mobile Number">
+<input type="tel" id="mobile" placeholder="Mobile Number">
 
-<input type="password" placeholder="Password">
+<input type="password" id="signupPassword" placeholder="Password" required>
 
-<input type="password" placeholder="Confirm Password">
+<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
 
 <button onclick="signup()">
 Create Account
@@ -110,15 +111,7 @@ Already have an account?
 
 </div>
 
-<script>
-function signup(){
-
-alert("Account Created Successfully!");
-
-window.location.href="login.html";
-
-}
-</script>
+<script type="module" src="firebase.js"></script>
 
 </body>
-  </html>
+</html>
