@@ -27,39 +27,35 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 // Signup
-window.signup = function () {
+window.signup = async function () {
+
+  const name = document.getElementById("fullName").value;
+  const mobile = document.getElementById("mobile").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("✅ Account Created Successfully!");
-      window.location.href = "login.html";
-    })
-    .catch((error) => {
-      alert(error.message);
+  if (password !== confirmPassword) {
+    alert("❌ Passwords do not match!");
+    return;
+  }
+
+  try {
+
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+    await setDoc(doc(db, "students", userCredential.user.uid), {
+      name: name,
+      mobile: mobile,
+      email: email,
+      createdAt: new Date().toISOString()
     });
-};
 
-// Login
-window.login = function () {
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      alert("🎉 Login Successful!");
-      window.location.href = "dashboard.html";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
-};
-
-// Logout
-window.logout = function () {
-  signOut(auth).then(() => {
-    alert("Logged Out");
+    alert("✅ Account Created Successfully!");
     window.location.href = "login.html";
-  });
+
+  } catch (error) {
+    alert(error.message);
+  }
+
 };
