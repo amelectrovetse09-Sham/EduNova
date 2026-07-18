@@ -6,7 +6,11 @@ import {
   signInWithEmailAndPassword,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 // Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBnIkFMXLhLFIIxoUHN_iO_QfUujTTja_0",
@@ -21,7 +25,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
+const db = getFirestore(app);
 // Signup
 window.signup = function () {
   const email = document.getElementById("signupEmail").value;
