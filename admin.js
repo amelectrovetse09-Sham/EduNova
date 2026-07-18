@@ -1,0 +1,117 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+// Firebase Config
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Check Login
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+  }
+});
+
+// Add Course
+window.addCourse = async function () {
+
+  const courseName = document.getElementById("courseName").value;
+  const teacherName = document.getElementById("teacherName").value;
+  const description = document.getElementById("courseDescription").value;
+  const thumbnail = document.getElementById("thumbnail").value;
+
+  if (!courseName || !teacherName) {
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  await addDoc(collection(db, "courses"), {
+    courseName,
+    teacherName,
+    description,
+    thumbnail,
+    createdAt: new Date().toISOString()
+  });
+
+  alert("Course Added Successfully");
+
+  document.getElementById("courseName").value = "";
+  document.getElementById("teacherName").value = "";
+  document.getElementById("courseDescription").value = "";
+  document.getElementById("thumbnail").value = "";
+
+  loadCourses();
+};
+
+// Load Courses
+async function loadCourses() {
+
+  const list = document.getElementById("courseList");
+  list.innerHTML = "";
+
+  const querySnapshot = await getDocs(collection(db, "courses"));
+
+  querySnapshot.forEach((course) => {
+
+    const data = course.data();
+
+    list.innerHTML += `
+      <div class="course">
+        <h3>${data.courseName}</h3>
+        <p><b>Teacher:</b> ${data.teacherName}</p>
+        <p>${data.description}</p>
+
+        <button onclick="deleteCourse('${course.id}')">
+          Delete
+        </button>
+      </div>
+    `;
+  });
+}
+
+loadCourses();
+
+// Delete Course
+window.deleteCourse = async function(id){
+
+  await deleteDoc(doc(db,"courses",id));
+
+  alert("Course Deleted");
+
+  loadCourses();
+
+}
+
+// Logout
+window.logout=function(){
+
+signOut(auth).then(()=>{
+
+window.location.href="login.html";
+
+});
+
+}
