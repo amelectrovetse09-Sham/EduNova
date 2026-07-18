@@ -46,6 +46,9 @@ async function loadCourses() {
             <h2>${course.courseName}</h2>
             <p><b>Teacher:</b> ${course.teacherName}</p>
             <p>${course.description}</p>
+         <button onclick="startCourse('${doc.id}')">
+🚀 Start Learning
+</button>
           </div>
         </div>
       `;
@@ -56,5 +59,7 @@ async function loadCourses() {
     console.error(error);
   }
 }
-
+window.startCourse = function(courseId) {
+    window.location.href = `course.html?id=${courseId}`;
+};
 loadCourses();
