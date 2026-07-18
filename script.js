@@ -1,203 +1,164 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("EduNova Website Loaded Successfully!");
+// =========================
+// EduNova Script.js
+// =========================
 
-    const button = document.querySelector("button");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (button) {
-        button.addEventListener("click", function () {
-            alert("🚀 Welcome to EduNova!\nLearning Platform Coming Soon.");
+    console.log("🎓 EduNova Loaded Successfully");
+
+    // ---------- Auto Slider ----------
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    if (slides.length > 0) {
+
+        slides[current].classList.add("active");
+
+        setInterval(() => {
+
+            slides[current].classList.remove("active");
+
+            current = (current + 1) % slides.length;
+
+            slides[current].classList.add("active");
+
+        }, 3000);
+
+    }
+
+    // ---------- Scroll Animation ----------
+    const cards = document.querySelectorAll(".card");
+
+    function revealCards() {
+
+        cards.forEach(card => {
+
+            const top = card.getBoundingClientRect().top;
+
+            if (top < window.innerHeight - 100) {
+
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0)";
+
+            }
+
         });
+
     }
-});
-// ===========================
-// EduNova - script.js
-// ===========================
 
-// Welcome Message
-window.addEventListener("load", () => {
-    console.log("Welcome to EduNova 🚀");
-});
+    window.addEventListener("scroll", revealCards);
 
-// ===========================
-// Auto Image Slider
-// ===========================
+    revealCards();
 
-const slides = [
-    "images/banner1.jpg",
-    "images/banner2.jpg",
-    "images/banner3.jpg"
-];
+    // ---------- Load Theme ----------
+    if (localStorage.getItem("theme") === "dark") {
 
-let currentSlide = 0;
+        document.body.classList.add("dark");
 
-function changeSlide() {
-    const slider = document.getElementById("sliderImage");
-
-    if (slider) {
-        slider.src = slides[currentSlide];
-        currentSlide = (currentSlide + 1) % slides.length;
     }
-}
 
-setInterval(changeSlide, 3000);
+});
 
-// ===========================
-// Search Function
-// ===========================
+// =========================
+// Search
+// =========================
 
 function searchCourse() {
 
-    let input = document.getElementById("searchInput");
+    const input = document.getElementById("searchInput");
 
     if (!input) return;
 
-    let value = input.value.toLowerCase();
+    const value = input.value.toLowerCase();
 
-    let cards = document.querySelectorAll(".card");
+    document.querySelectorAll(".card").forEach(card => {
 
-    cards.forEach(card => {
-
-        if (card.innerText.toLowerCase().includes(value)) {
-
-            card.style.display = "block";
-
-        } else {
-
-            card.style.display = "none";
-
-        }
+        card.style.display =
+            card.innerText.toLowerCase().includes(value)
+            ? "block"
+            : "none";
 
     });
 
 }
 
-// ===========================
+// =========================
 // Dark Mode
-// ===========================
+// =========================
 
 function toggleDarkMode() {
 
     document.body.classList.toggle("dark");
 
+    localStorage.setItem(
+        "theme",
+        document.body.classList.contains("dark") ? "dark" : "light"
+    );
+
 }
 
-// ===========================
-// Back To Top Button
-// ===========================
+// =========================
+// Profile Menu
+// =========================
 
-const topBtn = document.getElementById("topBtn");
+function toggleProfile() {
 
-window.onscroll = function () {
+    document.getElementById("profileMenu").classList.toggle("show");
 
-    if (!topBtn) return;
+}
 
-    if (document.documentElement.scrollTop > 300) {
+window.addEventListener("click", function(e){
 
-        topBtn.style.display = "block";
+    const profile = document.querySelector(".profile");
 
-    } else {
+    if(profile && !profile.contains(e.target)){
 
-        topBtn.style.display = "none";
+        document.getElementById("profileMenu").classList.remove("show");
 
     }
 
-};
+});
+
+// =========================
+// Back To Top
+// =========================
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if (!topBtn) return;
+
+    topBtn.style.display =
+        document.documentElement.scrollTop > 300
+        ? "block"
+        : "none";
+
+});
 
 function topFunction() {
 
     window.scrollTo({
 
         top: 0,
-
         behavior: "smooth"
 
     });
 
 }
 
-// ===========================
-// Simple Scroll Animation
-// ===========================
+// =========================
+// Notification
+// =========================
 
-const cards = document.querySelectorAll(".card");
+const notification = document.querySelector(".notification");
 
-window.addEventListener("scroll", () => {
+if(notification){
 
-    cards.forEach(card => {
+    notification.addEventListener("click", () => {
 
-        const position = card.getBoundingClientRect().top;
-
-        if (position < window.innerHeight - 100) {
-
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-
-        }
+        alert("📢 New Mock Test Available!\n🎉 New Notes Uploaded!");
 
     });
 
-});
-// Auto Image Slider
-
-let index = 0;
-
-const slide = document.querySelectorAll(".slide");
-
-function autoSlider(){
-
-    slide.forEach(s => s.classList.remove("active"));
-
-    index++;
-
-    if(index >= slide.length){
-        index = 0;
-    }
-
-    slide[index].classList.add("active");
-
-}
-
-setInterval(autoSlider,3000);
-// Profile Menu
-
-function toggleProfile(){
-
-document.getElementById("profileMenu").classList.toggle("show");
-
-}
-
-// बाहर क्लिक करने पर मेनू बंद
-
-window.addEventListener("click",function(e){
-
-const profile=document.querySelector(".profile");
-
-if(profile && !profile.contains(e.target)){
-
-document.getElementById("profileMenu").classList.remove("show");
-
-}
-
-});
-// Dark Mode
-
-function toggleDarkMode(){
-
-document.body.classList.toggle("dark");
-
-localStorage.setItem(
-"theme",
-document.body.classList.contains("dark") ? "dark" : "light"
-);
-
-}
-
-window.onload=function(){
-
-if(localStorage.getItem("theme")=="dark"){
-
-document.body.classList.add("dark");
-
-}
-
-}
+                      }
