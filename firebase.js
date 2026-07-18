@@ -59,3 +59,41 @@ window.signup = async function () {
   }
 
 };
+// Login
+window.login = async function () {
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  try {
+
+    await signInWithEmailAndPassword(auth, email, password);
+
+    alert("🎉 Login Successful!");
+
+    window.location.href = "dashboard.html";
+
+  } catch (error) {
+
+    alert(error.message);
+
+  }
+
+};
+
+// Logout
+window.logout = async function () {
+
+  try {
+
+    await signOut(auth);
+
+    window.location.href = "login.html";
+
+  } catch (error) {
+
+    alert(error.message);
+
+  }
+
+};
