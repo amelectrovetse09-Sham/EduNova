@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduNova Login</title>
+<title>EduNova - Login</title>
 
 <style>
 *{
@@ -22,31 +22,31 @@ height:100vh;
 }
 
 .container{
+width:360px;
 background:#fff;
-width:350px;
 padding:30px;
 border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
+box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .logo{
-text-align:center;
-font-size:32px;
+font-size:34px;
 font-weight:bold;
 color:#1565C0;
+text-align:center;
 margin-bottom:10px;
 }
 
-.subtitle{
+p{
 text-align:center;
 color:#666;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 input{
 width:100%;
 padding:14px;
-margin:10px 0;
+margin:8px 0;
 border:1px solid #ccc;
 border-radius:10px;
 font-size:16px;
@@ -55,6 +55,7 @@ font-size:16px;
 button{
 width:100%;
 padding:14px;
+margin-top:10px;
 background:#1565C0;
 color:white;
 border:none;
@@ -67,12 +68,12 @@ button:hover{
 background:#0D47A1;
 }
 
-.link{
+.signup{
 text-align:center;
-margin-top:20px;
+margin-top:15px;
 }
 
-.link a{
+.signup a{
 text-decoration:none;
 color:#1565C0;
 font-weight:bold;
@@ -80,41 +81,28 @@ font-weight:bold;
 </style>
 
 </head>
-
 <body>
 
 <div class="container">
 
 <div class="logo">🎓 EduNova</div>
 
-<div class="subtitle">
-Learn Today, Lead Tomorrow
-</div>
+<p>Login to Your Account</p>
 
-<input type="email" placeholder="Email">
+<input type="email" id="loginEmail" placeholder="Email Address" required>
 
-<input type="password" placeholder="Password">
+<input type="password" id="loginPassword" placeholder="Password" required>
 
-<button onclick="login()">
-Login
-</button>
+<button onclick="login()">Login</button>
 
-<div class="link">
+<div class="signup">
 Don't have an account?
 <a href="signup.html">Sign Up</a>
 </div>
 
 </div>
 
-<script>
-function login(){
-
-alert("Welcome to EduNova!");
-
-window.location.href="index.html";
-
-}
-</script>
+<script type="module" src="firebase.js"></script>
 
 </body>
 </html>
