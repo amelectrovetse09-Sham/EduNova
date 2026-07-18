@@ -1,14 +1,12 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import {
   getFirestore,
   collection,
   getDocs
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// Firebase Config
 const firebaseConfig = {
-  apiKey: "AIzaSyBnIkFMXLhLFIIxoUHN_iO_QfUujTTja_0",
+  apiKey: "AIzaSyBnIkFMXLHfLIIxoUHN_iO_QfUujTTja_0",
   authDomain: "edunova-11508.firebaseapp.com",
   projectId: "edunova-11508",
   storageBucket: "edunova-11508.firebasestorage.app",
@@ -21,91 +19,41 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function loadCourses() {
-
-  const container = document.getElementById("courseContainer");
-  container.innerHTML = "";
-
-  const snapshot = await getDocs(collection(db, "courses"));
-
-  if (snapshot.empty) {
-    container.innerHTML = "<h2>No Courses Available</h2>";
-    return;
-  }
-
-  snapshot.forEach((doc) => {
-
-    const course = doc.data();
-
-    container.innerHTML += `
-      <div class="course">
-
-        <img src="${course.thumbnail}" 
-             onerror="this.src='https://picsum.photos/400/200'">
-
-        <div class="course-content">
-
-          <h2>${course.courseName}</h2>
-
-          <p><b>Teacher:</b> ${course.teacherName}</p>
-
-          <p>${course.description}</p>
-
-          <button onclick="alert('Course will start soon!')">
-            Start Learning
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
-  });
-
-}
-
-
-async function loadCourses() {
-
   const container = document.getElementById("courseContainer");
 
   try {
-
-    container.innerHTML = "Loading...";
+    container.innerHTML = "<h2>Loading...</h2>";
 
     const snapshot = await getDocs(collection(db, "courses"));
 
     container.innerHTML = "";
 
     if (snapshot.empty) {
-      container.innerHTML = "<h2>No Courses Found</h2>";
+      container.innerHTML = "<h2>No Courses Available</h2>";
       return;
     }
 
     snapshot.forEach((doc) => {
-
       const course = doc.data();
 
       container.innerHTML += `
-      <div class="course">
-      <h2>${course.courseName}</h2>
-      <p>${course.teacherName}</p>
-      <p>${course.description}</p>
-      </div>
-      `;
+        <div class="course">
+          <img src="${course.thumbnail || 'https://picsum.photos/400/200'}"
+               onerror="this.src='https://picsum.photos/400/200'">
 
+          <div class="course-content">
+            <h2>${course.courseName}</h2>
+            <p><b>Teacher:</b> ${course.teacherName}</p>
+            <p>${course.description}</p>
+          </div>
+        </div>
+      `;
     });
 
-  } catch (e) {
-
-    container.innerHTML =
-      "<h2 style='color:red'>Error:<br>" +
-      e.message +
-      "</h2>";
-
-    console.log(e);
-
+  } catch (error) {
+    container.innerHTML = `<h2 style="color:red;">${error.message}</h2>`;
+    console.error(error);
   }
-
 }
 
 loadCourses();
