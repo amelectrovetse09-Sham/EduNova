@@ -63,4 +63,49 @@ async function loadCourses() {
 
 }
 
+
+async function loadCourses() {
+
+  const container = document.getElementById("courseContainer");
+
+  try {
+
+    container.innerHTML = "Loading...";
+
+    const snapshot = await getDocs(collection(db, "courses"));
+
+    container.innerHTML = "";
+
+    if (snapshot.empty) {
+      container.innerHTML = "<h2>No Courses Found</h2>";
+      return;
+    }
+
+    snapshot.forEach((doc) => {
+
+      const course = doc.data();
+
+      container.innerHTML += `
+      <div class="course">
+      <h2>${course.courseName}</h2>
+      <p>${course.teacherName}</p>
+      <p>${course.description}</p>
+      </div>
+      `;
+
+    });
+
+  } catch (e) {
+
+    container.innerHTML =
+      "<h2 style='color:red'>Error:<br>" +
+      e.message +
+      "</h2>";
+
+    console.log(e);
+
+  }
+
+}
+
 loadCourses();
