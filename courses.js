@@ -8,7 +8,13 @@ import {
 
 // Firebase Config
 const firebaseConfig = {
-  // 👇 यहाँ अपना वही Firebase Config पेस्ट करें
+  apiKey: "AIzaSyBnIkFMXLhLFIIxoUHN_iO_QfUujTTja_0",
+  authDomain: "edunova-11508.firebaseapp.com",
+  projectId: "edunova-11508",
+  storageBucket: "edunova-11508.firebasestorage.app",
+  messagingSenderId: "622869465696",
+  appId: "1:622869465696:web:112371efd1cf8f1b505105",
+  measurementId: "G-RPB647L3F6"
 };
 
 const app = initializeApp(firebaseConfig);
