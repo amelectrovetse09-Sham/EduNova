@@ -16,12 +16,13 @@ import {
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBnIkFMXLhLFIIxoUHN_iO_QfUujTTja_0",
+  authDomain: "edunova-11508.firebaseapp.com",
+  projectId: "edunova-11508",
+  storageBucket: "edunova-11508.firebasestorage.app",
+  messagingSenderId: "622869465696",
+  appId: "1:622869465696:web:112371efd1cf8f1b505105",
+  measurementId: "G-RPB647L3F6"
 };
 
 const app = initializeApp(firebaseConfig);
