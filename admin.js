@@ -43,27 +43,31 @@ window.addCourse = async function () {
   const teacherName = document.getElementById("teacherName").value;
   const description = document.getElementById("courseDescription").value;
   const thumbnail = document.getElementById("thumbnail").value;
+const videoUrl = document.getElementById("videoUrl").value;
+const pdfUrl = document.getElementById("pdfUrl").value;
 
   if (!courseName || !teacherName) {
     alert("Please fill all required fields.");
     return;
   }
-
-  await addDoc(collection(db, "courses"), {
-    courseName,
-    teacherName,
-    description,
-    thumbnail,
-    createdAt: new Date().toISOString()
-  });
-
+await addDoc(collection(db, "courses"), {
+  courseName,
+  teacherName,
+  description,
+  thumbnail,
+  videoUrl,
+  pdfUrl,
+  createdAt: new Date().toISOString()
+});
+  
   alert("Course Added Successfully");
 
   document.getElementById("courseName").value = "";
   document.getElementById("teacherName").value = "";
   document.getElementById("courseDescription").value = "";
   document.getElementById("thumbnail").value = "";
-
+  document.getElementById("videoUrl").value = "";
+  document.getElementById("pdfUrl").value = "";
   loadCourses();
 };
 
